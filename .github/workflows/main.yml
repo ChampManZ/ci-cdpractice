@@ -37,7 +37,7 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps: 
-      - name: Deploying to Firebase 
+      - name: Deploying To Firebase 
         uses: w9jds/firebase-action@master
         with:
           args: deploy
