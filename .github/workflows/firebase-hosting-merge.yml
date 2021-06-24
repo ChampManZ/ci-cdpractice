@@ -28,7 +28,7 @@ jobs:
         run: npm test
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
-          entrypoint: ./cicdpractice
+          #entrypoint: ./cicdpractice
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_CI_CD_PRACTICE_596D4 }}'
           channelId: live
