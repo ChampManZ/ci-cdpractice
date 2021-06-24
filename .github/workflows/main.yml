@@ -92,5 +92,12 @@ jobs:
 #           args: deploy
 #         env:
 #           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
+      - uses: FirebaseExtended/action-hosting-deploy@v0
+        with:
+          #entrypoint: ./cicdpractice
+          repoToken: '${{ secrets.GITHUB_TOKEN }}'
+          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_CI_CD_PRACTICE_596D4 }}'
+          channelId: live
+          projectId: ci-cd-practice-596d4
        
 
