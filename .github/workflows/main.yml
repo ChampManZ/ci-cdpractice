@@ -27,7 +27,7 @@ jobs:
       run: npm i
     - name: Run build
       #orking-directory: ${{env.working-directory}}
-      run: npm run build 
+      run: npm run build --prod 
     - name: Run testing
       #orking-directory: ${{env.working-directory}}
       run: npm test
