@@ -1,0 +1,47 @@
+name: Node.js CI/CD
+
+on:
+  push:
+    branches: [ main ]
+    
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+    env:
+      working-directory: ./Frontend/covid19-tracker
+
+    strategy:
+      matrix:
+        node-version: [14.x]
+        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v2
+      with:
+        node-version: ${{ matrix.node-version }}
+    - name: Run in Directory
+      working-directory: ${{env.working-directory}}
+      run: npm i
+    - name: Run in Directory 2
+      working-directory: ${{env.working-directory}}
+      run: npm install chart.js
+    - name: Run build
+      working-directory: ${{env.working-directory}}
+      run: npm run build --if-present
+    - name: Run test
+      working-directory: ${{env.working-directory}}
+      run: npm test
+       
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    steps: 
+      - name: Deployment
+        uses: azure/webapps-deploy@v2
+        with:
+          app-name: covidtracker
+          publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
+          package: ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}
