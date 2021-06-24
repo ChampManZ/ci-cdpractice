@@ -7,7 +7,7 @@ on:
 jobs:
   build:
 
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
     env:
       working-directory: ./cicdpractice
 
@@ -32,6 +32,17 @@ jobs:
       working-directory: ${{env.working-directory}}
       run: npm test
       
+      
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    steps: 
+      - name: Deployment
+        uses: w9jds/firebase-action@master
+        with:
+          args: deploy
+        env:
+          FIREBASE_TOKEN: ${{secrets.FIREBASE_TOKEN}}
       #commit
        
 
