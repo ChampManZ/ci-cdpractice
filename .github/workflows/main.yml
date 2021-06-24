@@ -37,8 +37,6 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps: 
-      - name: set directory
-        working-directory: ./cicdpractice
       - name: Deployment to Firebase
         uses: w9jds/firebase-action@master
         with:
