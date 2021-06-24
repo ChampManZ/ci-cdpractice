@@ -7,7 +7,7 @@ on:
 jobs:
   build:
 
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     env:
       working-directory: ./cicdpractice
 
@@ -32,13 +32,4 @@ jobs:
       working-directory: ${{env.working-directory}}
       run: npm test
        
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    steps: 
-      - name: Deployment
-        uses: azure/webapps-deploy@v2
-        with:
-          app-name: covidtracker
-          publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
-          package: ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}
+
