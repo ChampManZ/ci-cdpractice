@@ -15,4 +15,3 @@ function Number({ numb1, numb2 }) {
 }
 
 export default Number
-module.exports = addNumber
