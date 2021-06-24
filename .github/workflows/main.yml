@@ -28,7 +28,7 @@ jobs:
     - name: Run build
       working-directory: ${{env.working-directory}}
       run: npm run build --if-present
-    - name: Run test
+    - name: Run testing
       working-directory: ${{env.working-directory}}
       run: npm test
       
