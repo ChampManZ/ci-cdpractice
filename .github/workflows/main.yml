@@ -23,13 +23,13 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
     - name: Run in Directory
-      working-directory: ${{env.working-directory}}
+      #orking-directory: ${{env.working-directory}}
       run: npm i
     - name: Run build
-      #working-directory: ${{env.working-directory}}
+      #orking-directory: ${{env.working-directory}}
       run: npm run build 
     - name: Run testing
-      working-directory: ${{env.working-directory}}
+      #orking-directory: ${{env.working-directory}}
       run: npm test
       
       
