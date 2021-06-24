@@ -7,7 +7,7 @@ function App() {
     <div className="App">
       <h1>Hello, World</h1>
       <button id="clickme">Click Me</button>
-      <Number numb1={4} numb2={5} />
+      <Number numb1={22} numb2={8} />
     </div>
   );
 }
