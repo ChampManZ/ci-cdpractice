@@ -22,7 +22,7 @@ jobs:
         run: npm i
       - name: Run build
         #working-directory: ${{env.working-directory}}
-        run: npm run build--prod
+        run: npm run build --prod
       - name: Run testing
         #working-directory: ${{env.working-directory}}
         run: npm test
